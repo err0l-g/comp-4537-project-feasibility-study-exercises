@@ -11,11 +11,13 @@ const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TO
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/comp-4537/project-exercises', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// Question 5: Twilio SMS API
+
+app.get('/comp-4537/project-exercises/question_five', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'question_five.html'));
 });
 
-app.post('/comp-4537/project-exercises', (req, res) => {
+app.post('/comp-4537/project-exercises/question_five', (req, res) => {
   const { phone, message } = req.body;
 
   client.messages
@@ -31,3 +33,10 @@ app.post('/comp-4537/project-exercises', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at ${process.env.DOMAIN}:${port}`);
 });
+
+// Question 6: Voice Recognition API (Google Cloud Speech-to-Text)
+
+app.get('/comp-4537/project-exercises/question_six', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'question_six.html'));
+});
+
