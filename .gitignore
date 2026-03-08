@@ -31,3 +31,6 @@ build/
 # Logs
 logs/
 *.log
+
+# Google Cloud credentials
+credentials.json
